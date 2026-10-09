@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+PROJECT_DIR="/Users/example/life-iq"
+export PYTHONPATH="$PROJECT_DIR/src${PYTHONPATH:+:$PYTHONPATH}"
+exec /usr/bin/python3 -m life_iq --config "$PROJECT_DIR/config/life-iq.toml" "$@"

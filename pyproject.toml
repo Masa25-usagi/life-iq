@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta:__legacy__"
+
+[project]
+name = "life-iq"
+version = "0.1.0"
+description = "Read-only local life-context ingestion"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+life-iq = "life_iq.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,48 @@
+# screenpipe — AI that knows everything you've seen, said, or heard
+# https://screenpipe.com
+#
+# Life IQ has no credential fields.  Keep OAuth tokens in macOS Keychain or
+# another user-managed credential store; never put them in this file.
+
+[run]
+timezone = "Asia/Tokyo"
+daily_hour = 5
+daily_minute = 0
+lookback_days = 1
+# Optional explicit local hook. Leave empty for deterministic generation.
+# It receives redacted normalized JSON on stdin and must print Markdown.
+summarizer_command = ""
+
+[paths]
+# Relative paths are resolved from the repository root (the parent of config/).
+drive_sync = "local-sync/Life IQ"
+# Optional local exports/captures.  Browser/app capture bridge outputs are
+# connected to the four live JSONL paths below.
+gmail_export = ""
+drive_source = ""
+screenpipe_capture = ""
+line_capture = "captures/line/live.jsonl"
+discord_capture = "captures/discord/live.jsonl"
+x_capture = "captures/x/live.jsonl"
+slack_capture = "captures/slack/live.jsonl"
+state = "state/ingest-state.json"
+knowledge = "knowledge"
+context = "IMPORTANT_CONTEXT.md"
+runs = "state/runs"
+reply_queue = "state/reply-queue.json"
+pending_replies = "knowledge/replies/pending.md"
+send_intents = "state/send-intents"
+
+sync_outputs = false
+
+[sources.x]
+handle = "example_user"
+
+[sources.slack]
+# Empty means all workspaces are allowed.  Use names, IDs, full URLs, or domains to restrict.
+workspace_allowlist = []
+school_workspaces = ["example-school.slack.com"]
+
+[sources.discord]
+# Empty by default: server replies require explicit user allowlisting.
+reply_allowlist = []

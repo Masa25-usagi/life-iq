@@ -1,0 +1,11 @@
+{
+  "name": "life-iq",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Read-only local Life IQ ingestion skeleton (Python runtime)",
+  "scripts": {
+    "test": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+    "check": "PYTHONPATH=src python3 -m life_iq --config config/example.toml --check-config"
+  },
+  "license": "MIT"
+}
